@@ -2,7 +2,15 @@ apiVersion: v1
 entries:
   beer-service-web:
   - apiVersion: v1
-    created: 2018-01-25T11:14:24.2686+01:00
+    created: 2018-01-25T13:32:30.914318+01:00
+    description: Beer Service Web Helm chart
+    digest: fcb290fc00511d94de808665a1bcd8329a351dec4222bbb9f96ff3d5851bc2fa
+    name: beer-service-web
+    urls:
+    - https://dcos-labs.github.io/charts/beer-service-web-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
+    created: 2018-01-25T13:32:30.913474+01:00
     description: Beer Service Web Helm chart
     digest: 18acd6e76601a6061e44f288fec2825fa6834a7b432b8229c4b282dc178ee844
     name: beer-service-web
@@ -10,7 +18,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-01-25T11:14:24.26829+01:00
+    created: 2018-01-25T13:32:30.906661+01:00
     description: Beer Service Web Helm chart
     digest: a97e6d12ba90da0d061f12ae7942d68989e6a74860a1652f9bcca517c7e3bc2c
     name: beer-service-web
@@ -19,7 +27,21 @@ entries:
     version: 0.1.2
   cloudflare-warp-ingress:
   - apiVersion: v1
-    created: 2018-01-25T11:14:24.268907+01:00
+    created: 2018-01-25T13:32:30.916526+01:00
+    description: Installs the cloudflare warp ingress controller
+    digest: 648b313bb6ada93de7a1b43e525ba1802832baaa40153c66b34a6a39c98e5681
+    home: https://warp.cloudflare.com/
+    maintainers:
+    - email: nate@stackpointcloud.com
+      name: Nathan Franzen
+    - email: rmocius@gmail.com
+      name: rimusz
+    name: cloudflare-warp-ingress
+    urls:
+    - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v1
+    created: 2018-01-25T13:32:30.91577+01:00
     description: Installs the cloudflare warp ingress controller
     digest: 21904f641c327b40c1d6ad00f9986ccd02fff4996d59f3a97c816bed98fc9745
     home: https://warp.cloudflare.com/
@@ -32,4 +54,4 @@ entries:
     urls:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.2.tgz
     version: 0.1.2
-generated: 2018-01-25T11:14:24.267243+01:00
+generated: 2018-01-25T13:32:30.905557+01:00

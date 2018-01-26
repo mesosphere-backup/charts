@@ -7,7 +7,7 @@ replicaCount: 2
 beerService:
   image:
     repository: mesosphere/dcos-beer-service
-    tag: 1.0
+    tag: "1.0"
     pullPolicy: Always
   deployment:
     version: 3
@@ -18,7 +18,7 @@ beerService:
 beerWeb:
   image:
     repository: mesosphere/dcos-beer-service-web
-    tag: 1.0
+    tag: "1.0"
     pullPolicy: Always
 
 service:

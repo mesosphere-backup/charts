@@ -33,7 +33,7 @@ helm upgrade --install beer --namespace beer dlc/beer-service \
     --set ingress.enabled="true",ingress.host="beer.mydomain.com"
 ```
 
-Please install (Cloudflare Warp Ingress Controller chart](../cloudflare-warp-ingress) to expose your app externally.
+Please install [Cloudflare Warp Ingress Controller chart](../cloudflare-warp-ingress) to expose your app externally.
 
 
 ## Remove

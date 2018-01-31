@@ -1,0 +1,10 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: {{ template "nfs-provisioner.fullname" . }}
+  labels:
+    app: {{ template "nfs-provisioner.name" . }}
+    chart: {{ template "nfs-provisioner.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+provisioner: {{ template "nfs-provisioner.fullname" . }}

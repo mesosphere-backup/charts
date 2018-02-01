@@ -1,4 +1,4 @@
-To verify that OpenFaaS has started:
+To verify that Cloud Warp Controller has started:
 
 kubectl --namespace={{ .Release.Namespace }} get deployments -l "release={{ .Release.Name }}, app={{ template "cloudflare-warp-ingress.name" . }}"
 

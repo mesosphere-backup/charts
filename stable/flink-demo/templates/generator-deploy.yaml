@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "flink-demo.fullname" . }}-generator
+  labels:
+    app: {{ template "flink-demo.name" . }}
+    chart: {{ template "flink-demo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "flink-demo.name" . }}-generator
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "flink-demo.name" . }}-generator
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}-generator
+          image: "{{ .Values.generator.image.repository }}:{{ .Values.generator.image.tag }}"
+          imagePullPolicy: {{ .Values.generator.image.pullPolicy }}
+          command: ["/generator-linux"]
+          args: ["--broker", "{{ .Values.brokerKafkaUrl }}"]
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

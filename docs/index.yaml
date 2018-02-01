@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   beer-service-web:
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.969581Z
+    created: 2018-02-01T14:32:28.423626Z
     description: Beer Service Web Helm chart
     digest: b3404f83f820263a06e8affbf7c00fd2ff272bab64acad69071e243e4d3db19b
     name: beer-service-web
@@ -10,7 +10,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.969239Z
+    created: 2018-02-01T14:32:28.423284Z
     description: Beer Service Web Helm chart
     digest: fcb290fc00511d94de808665a1bcd8329a351dec4222bbb9f96ff3d5851bc2fa
     name: beer-service-web
@@ -18,7 +18,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.968469Z
+    created: 2018-02-01T14:32:28.422582Z
     description: Beer Service Web Helm chart
     digest: 18acd6e76601a6061e44f288fec2825fa6834a7b432b8229c4b282dc178ee844
     name: beer-service-web
@@ -26,7 +26,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.9676Z
+    created: 2018-02-01T14:32:28.420727Z
     description: Beer Service Web Helm chart
     digest: a97e6d12ba90da0d061f12ae7942d68989e6a74860a1652f9bcca517c7e3bc2c
     name: beer-service-web
@@ -35,7 +35,21 @@ entries:
     version: 0.1.2
   cloudflare-warp-ingress:
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.970487Z
+    created: 2018-02-01T14:32:28.425698Z
+    description: Installs the cloudflare warp ingress controller
+    digest: 7a65a015de88f5307039cc50e572e00541a3dcfd4dff7ca16771526724b15dc2
+    home: https://warp.cloudflare.com/
+    maintainers:
+    - email: nate@stackpointcloud.com
+      name: Nathan Franzen
+    - email: rmocius@gmail.com
+      name: rimusz
+    name: cloudflare-warp-ingress
+    urls:
+    - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
+    created: 2018-02-01T14:32:28.425251Z
     description: Installs the cloudflare warp ingress controller
     digest: 648b313bb6ada93de7a1b43e525ba1802832baaa40153c66b34a6a39c98e5681
     home: https://warp.cloudflare.com/
@@ -49,7 +63,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-01-31T18:26:15.970174Z
+    created: 2018-02-01T14:32:28.424425Z
     description: Installs the cloudflare warp ingress controller
     digest: 21904f641c327b40c1d6ad00f9986ccd02fff4996d59f3a97c816bed98fc9745
     home: https://warp.cloudflare.com/
@@ -62,14 +76,24 @@ entries:
     urls:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.2.tgz
     version: 0.1.2
+  flink-demo:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-02-01T14:32:28.426037Z
+    description: A Helm chart for Flink Demo
+    digest: c88d2890265ca92c0f0fe318e104d2696da2d3f36e9da869dc86503417d075ba
+    name: flink-demo
+    urls:
+    - https://dcos-labs.github.io/charts/flink-demo-0.1.0.tgz
+    version: 0.1.0
   nfs-provisioner:
   - apiVersion: v1
     appVersion: 1.0.9
-    created: 2018-01-31T18:26:15.970836Z
+    created: 2018-02-01T14:32:28.426354Z
     description: A Helm chart for NFS Provisioner
     digest: 53a43b6a6a1c2579acff6ac24ae92e3bc51bf204eb106718b8ebb44fef6842f3
     name: nfs-provisioner
     urls:
     - https://dcos-labs.github.io/charts/nfs-provisioner-0.1.0.tgz
     version: 0.1.0
-generated: 2018-01-31T18:26:15.966762Z
+generated: 2018-02-01T14:32:28.419834Z

@@ -1,0 +1,50 @@
+# Default values for flink-demo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+actor:
+  image:
+    repository: mesosphere/flink-demo-actor
+    tag: "0.1"
+    pullPolicy: IfNotPresent
+
+generator:
+  image:
+    repository: mesosphere/flink-generator
+    tag: "0.1"
+    pullPolicy: IfNotPresent
+
+brokerKafkaUrl: "broker.kafka.l4lb.thisdcos.directory:9092"
+
+service:
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 8080
+
+ingress:
+  enabled: false
+  # Used to create an Ingress record.
+  # Replace with your domain
+  host: flink.mydomain.com
+  annotations:
+    kubernetes.io/ingress.class: cloudflare-warp
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

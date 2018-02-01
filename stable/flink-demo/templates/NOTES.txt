@@ -1,0 +1,4 @@
+To verify that Display and Generator have started:
+
+kubectl --namespace={{ .Release.Namespace }} get deployments -l "release={{ .Release.Name }}, app={{ template "flink-demo.name" . }}-actor"
+kubectl --namespace={{ .Release.Namespace }} get deployments -l "release={{ .Release.Name }}, app={{ template "flink-demo.name" . }}-generator"

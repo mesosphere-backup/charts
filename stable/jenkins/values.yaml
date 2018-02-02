@@ -13,8 +13,8 @@ Master:
   UseSecurity: true
   AdminUser: admin
   # AdminPassword: <defaults to random>
-  Cpu: "200m"
-  Memory: "256Mi"
+  Cpu: "400m"
+  Memory: "512Mi"
   # Set min/max heap here if needed with:
   # JavaOpts: "-Xms512m -Xmx512m"
   # JenkinsOpts: ""
@@ -26,7 +26,7 @@ Master:
   ServicePort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
-  ServiceType: LoadBalancer
+  ServiceType: ClusterIP
   # Master Service annotations
   ServiceAnnotations: {}
   #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
@@ -51,11 +51,14 @@ Master:
   # JMXPort: 4000
   # List of plugins to be install during Jenkins master start
   InstallPlugins:
-    - kubernetes:1.1
+    - kubernetes:1.1.4
     - workflow-aggregator:2.5
     - workflow-job:2.17
-    - credentials-binding:1.13
-    - git:3.6.4
+    - credentials-binding:1.14
+    - git:3.7.0
+    - pipeline-github-lib:1.0
+    - ghprb:1.40.0
+    - blueocean:1.4.0
   # Used to approve a list of groovy functions in pipelines used the script-security plugin. Can be viewed under /scriptApproval
   # ScriptApproval:
   #   - "method groovy.json.JsonSlurperClassic parseText java.lang.String"

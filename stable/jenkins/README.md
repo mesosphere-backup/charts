@@ -17,7 +17,7 @@ This chart will do the following:
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release stable/jenkins
+$ helm install --name my-release dlc/jenkins
 ```
 
 ## Configuration
@@ -30,18 +30,18 @@ The following tables lists the configurable parameters of the Jenkins chart and 
 | --------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------- |
 | `Master.Name`                     | Jenkins master name                  | `jenkins-master`                                                             |
 | `Master.Image`                    | Master image name                    | `jenkinsci/jenkins`                                                          |
-| `Master.ImageTag`                 | Master image tag                     | `2.46.1`                                                                     |
+| `Master.ImageTag`                 | Master image tag                     | `lts`                                                                     |
 | `Master.ImagePullPolicy`          | Master image pull policy             | `Always`                                                                     |
 | `Master.ImagePullSecret`          | Master image pull secret             | Not set                                                                      |
 | `Master.Component`                | k8s selector key                     | `jenkins-master`                                                             |
 | `Master.UseSecurity`              | Use basic security                   | `true`                                                                       |
 | `Master.AdminUser`                | Admin username (and password) created as a secret if useSecurity is true | `admin`                                  |
-| `Master.Cpu`                      | Master requested cpu                 | `200m`                                                                       |
-| `Master.Memory`                   | Master requested memory              | `256Mi`                                                                      |
+| `Master.Cpu`                      | Master requested cpu                 | `400m`                                                                       |
+| `Master.Memory`                   | Master requested memory              | `512Mi`                                                                      |
 | `Master.RunAsUser`                | uid that jenkins runs with           | `0`                                                                          |
 | `Master.FsGroup`                  | uid that will be used for persistent volume | `0`                                                                   |
 | `Master.ServiceAnnotations`       | Service annotations                  | `{}`                                                                         |
-| `Master.ServiceType`              | k8s service type                     | `LoadBalancer`                                                               |
+| `Master.ServiceType`              | k8s service type                     | `ClusterIP`                                                               |
 | `Master.ServicePort`              | k8s service port                     | `8080`                                                                       |
 | `Master.NodePort`                 | k8s node port                        | Not set                                                                      |
 | `Master.HealthProbes`             | Enable k8s liveness and readiness probes | `true`                                                                   |
@@ -58,7 +58,7 @@ The following tables lists the configurable parameters of the Jenkins chart and 
 | `Master.CredentialsXmlSecret`     | Kubernetes secret that contains a 'credentials.xml' file | Not set                                                  |
 | `Master.SecretsFilesSecret`       | Kubernetes secret that contains 'secrets' files | Not set                                                           |
 | `Master.Jobs`                     | Jenkins XML job configs              | Not set                                                                      |
-| `Master.InstallPlugins`           | List of Jenkins plugins to install   | `kubernetes:0.11 workflow-aggregator:2.5 credentials-binding:1.11 git:3.2.0` |
+| `Master.InstallPlugins`           | List of Jenkins plugins to install   | `check values file` |
 | `Master.ScriptApproval`           | List of groovy functions to approve  | Not set                                                                      |
 | `Master.NodeSelector`             | Node labels for pod assignment       | `{}`                                                                         |
 | `Master.Tolerations`              | Toleration labels for pod assignment | `{}`                                                                         |
@@ -76,7 +76,7 @@ The following tables lists the configurable parameters of the Jenkins chart and 
 | `Agent.Enabled`         | Enable Kubernetes plugin jnlp-agent podTemplate | `true`                 |
 | `Agent.Image`           | Agent image name                                | `jenkinsci/jnlp-slave` |
 | `Agent.ImagePullSecret` | Agent image pull secret                         | Not set                |
-| `Agent.ImageTag`        | Agent image tag                                 | `2.62`                 |
+| `Agent.ImageTag`        | Agent image tag                                 | `3.10-1`                 |
 | `Agent.Privileged`      | Agent privileged container                      | `false`                |
 | `Agent.Cpu`             | Agent requested cpu                             | `200m`                 |
 | `Agent.Memory`          | Agent requested memory                          | `256Mi`                |
@@ -87,7 +87,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml stable/jenkins
+$ helm install --name my-release -f values.yaml dlc/jenkins
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
@@ -118,9 +118,9 @@ the DefaultDeny namespace annotation. Note: this will enforce policy for _all_ p
     kubectl annotate namespace default "net.beta.kubernetes.io/network-policy={\"ingress\":{\"isolation\":\"DefaultDeny\"}}"
 
 
-Install helm chart with network policy enabled: 
+Install helm chart with network policy enabled:
 
-    $ helm install stable/jenkins --set NetworkPolicy.Enabled=true
+    $ helm install dlc/jenkins --set NetworkPolicy.Enabled=true
 
 ## Persistence
 
@@ -148,7 +148,7 @@ It is possible to mount several volumes using `Persistence.volumes` and `Persist
 1. Create the PersistentVolumeClaim
 1. Install the chart
 ```bash
-$ helm install --name my-release --set Persistence.ExistingClaim=PVC_NAME stable/jenkins
+$ helm install --name my-release --set Persistence.ExistingClaim=PVC_NAME dlc/jenkins
 ```
 
 ## Custom ConfigMap
@@ -175,14 +175,14 @@ and provide the file `templates/config.tpl` in your parent chart for your use ca
 
 If running upon a cluster with RBAC enabled you will need to do the following:
 
-* `helm install stable/jenkins --set rbac.install=true`
+* `helm install dlc/jenkins --set rbac.install=true`
 * Create a Jenkins credential of type Kubernetes service account with service account name provided in the `helm status` output.
 * Under configure Jenkins -- Update the credentials config in the cloud section to use the service account credential you created in the step above.
 
 ## Run Jenkins as non root user
 
 The default settings of this helm chart let Jenkins run as root user with uid `0`.
-Due to security reasons you may want to run Jenkins as a non root user. 
+Due to security reasons you may want to run Jenkins as a non root user.
 Fortunately the default jenkins docker image `jenkins/jenkins` contains a user `jenkins` with uid `1000` that can be used for this purpose.  
 
 Simply use the following settings to run Jenkins as `jenkins` user with uid `1000`.

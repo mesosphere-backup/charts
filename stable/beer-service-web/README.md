@@ -6,7 +6,7 @@ This is Front-end Web App Helm chart for [dcos-k8s-beer-demo](https://github.com
 
 To deploy Frontend App run:
 ```bash
-helm install --name beer --namespace beer dlc/beer-service
+helm install --name beer --namespace beer dlc/beer-service-web
 ```
 
 Check that pods are running:

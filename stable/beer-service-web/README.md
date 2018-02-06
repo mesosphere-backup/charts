@@ -29,7 +29,7 @@ Now you should be able to check beer at http://127.0.0.1:8080
 
 To deploy Frontend App run (do not forget to replace there with your domain_name):
 ```bash
-helm upgrade --install beer --namespace beer dlc/beer-service \
+helm upgrade --install beer --namespace beer dlc/beer-service-web \
     --set ingress.enabled="true",ingress.host="beer.mydomain.com"
 ```
 

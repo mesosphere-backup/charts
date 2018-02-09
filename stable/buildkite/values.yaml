@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: buildkite/agent
   tag: 3.0
-  pullPolicy: always
+  pullPolicy: Always
 
 # Buildkite Agent settings
 agent:

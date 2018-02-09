@@ -2,15 +2,15 @@ apiVersion: v1
 entries:
   beer-service-web:
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.909402Z
+    created: 2018-02-09T14:30:59.792655Z
     description: Beer Service Web Helm chart
-    digest: b3404f83f820263a06e8affbf7c00fd2ff272bab64acad69071e243e4d3db19b
+    digest: cd8be314433d5fa9b2b8229da7f4f1ae9eabef10848b7fd5f3d61577c50c166c
     name: beer-service-web
     urls:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.90892Z
+    created: 2018-02-09T14:30:59.792071Z
     description: Beer Service Web Helm chart
     digest: fcb290fc00511d94de808665a1bcd8329a351dec4222bbb9f96ff3d5851bc2fa
     name: beer-service-web
@@ -18,7 +18,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.908219Z
+    created: 2018-02-09T14:30:59.79114Z
     description: Beer Service Web Helm chart
     digest: 18acd6e76601a6061e44f288fec2825fa6834a7b432b8229c4b282dc178ee844
     name: beer-service-web
@@ -26,7 +26,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.907592Z
+    created: 2018-02-09T14:30:59.790186Z
     description: Beer Service Web Helm chart
     digest: a97e6d12ba90da0d061f12ae7942d68989e6a74860a1652f9bcca517c7e3bc2c
     name: beer-service-web
@@ -36,7 +36,28 @@ entries:
   buildkite:
   - apiVersion: v1
     appVersion: "3.0"
-    created: 2018-02-09T14:14:10.909944Z
+    created: 2018-02-09T14:30:59.796684Z
+    description: Agent for Buildkite
+    digest: af5ca8dbf0d823e00652139e30281757315bf4af49ad5201d02448b90847c0ea
+    home: https://buildkite.com
+    icon: https://github.com/buildkite/media/blob/master/marks/Buildkite%20-%20Mark%20-%20colour.png
+    keywords:
+    - kubernetes deployment
+    - helm release
+    - continuous deployment
+    - continuous integration
+    maintainers:
+    - email: rmocius@gmail.com
+      name: rimusz
+    name: buildkite
+    sources:
+    - https://github.com/buildkite/agent
+    urls:
+    - https://dcos-labs.github.io/charts/buildkite-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: "3.0"
+    created: 2018-02-09T14:30:59.793964Z
     description: Agent for Buildkite
     digest: a72498face1c215d80c36f638bb00f23da6482a236ce7c63b5cf107b745b4fbc
     home: https://buildkite.com
@@ -57,7 +78,7 @@ entries:
     version: 0.2.1
   cloudflare-warp-ingress:
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.911627Z
+    created: 2018-02-09T14:30:59.80109Z
     description: Installs the cloudflare warp ingress controller
     digest: 7a65a015de88f5307039cc50e572e00541a3dcfd4dff7ca16771526724b15dc2
     home: https://warp.cloudflare.com/
@@ -71,7 +92,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.911214Z
+    created: 2018-02-09T14:30:59.800609Z
     description: Installs the cloudflare warp ingress controller
     digest: 648b313bb6ada93de7a1b43e525ba1802832baaa40153c66b34a6a39c98e5681
     home: https://warp.cloudflare.com/
@@ -85,7 +106,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-02-09T14:14:10.91063Z
+    created: 2018-02-09T14:30:59.797372Z
     description: Installs the cloudflare warp ingress controller
     digest: 21904f641c327b40c1d6ad00f9986ccd02fff4996d59f3a97c816bed98fc9745
     home: https://warp.cloudflare.com/
@@ -101,7 +122,7 @@ entries:
   flink-demo:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-02-09T14:14:10.911886Z
+    created: 2018-02-09T14:30:59.801971Z
     description: A Helm chart for Flink Demo
     digest: c88d2890265ca92c0f0fe318e104d2696da2d3f36e9da869dc86503417d075ba
     name: flink-demo
@@ -110,7 +131,7 @@ entries:
     version: 0.1.0
   jenkins:
   - appVersion: "2.73"
-    created: 2018-02-09T14:14:10.914708Z
+    created: 2018-02-09T14:30:59.805923Z
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -130,7 +151,7 @@ entries:
     - https://dcos-labs.github.io/charts/jenkins-0.13.2.tgz
     version: 0.13.2
   - appVersion: "2.73"
-    created: 2018-02-09T14:14:10.913814Z
+    created: 2018-02-09T14:30:59.804386Z
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -152,11 +173,11 @@ entries:
   nfs-provisioner:
   - apiVersion: v1
     appVersion: 1.0.9
-    created: 2018-02-09T14:14:10.915409Z
+    created: 2018-02-09T14:30:59.80636Z
     description: A Helm chart for NFS Provisioner
     digest: 53a43b6a6a1c2579acff6ac24ae92e3bc51bf204eb106718b8ebb44fef6842f3
     name: nfs-provisioner
     urls:
     - https://dcos-labs.github.io/charts/nfs-provisioner-0.1.0.tgz
     version: 0.1.0
-generated: 2018-02-09T14:14:10.906894Z
+generated: 2018-02-09T14:30:59.789425Z

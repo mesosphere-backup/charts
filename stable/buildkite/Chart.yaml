@@ -14,4 +14,4 @@ maintainers:
 name: buildkite
 sources:
 - https://github.com/buildkite/agent
-version: 0.2.1
+version: 0.2.2

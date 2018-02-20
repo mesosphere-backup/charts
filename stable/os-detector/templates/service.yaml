@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "os-detector.fullname" . }}
+  labels:
+    app: {{ template "os-detector.name" . }}
+    chart: {{ template "os-detector.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "os-detector.name" . }}
+    release: {{ .Release.Name }}

@@ -1,0 +1,27 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "os-detector.fullname" . -}}
+{{- $servicePort := .Values.service.port -}}
+{{- $ingressPath := .Values.ingress.path -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    app: {{ template "os-detector.name" . }}
+    chart: {{ template "os-detector.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+{{- end }}

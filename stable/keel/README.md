@@ -29,7 +29,7 @@ Keel provides several key features:
 Docker image _polling_, _Kubernetes provider_ and _Helm provider_ support are set by default, then Kubernetes _deployments_ can be upgraded when new Docker image is available:
 
 ```console
-helm upgrade --install keel dlc/keel"
+helm upgrade --install keel dlc/keel
 ```
 
 ### Setting up Helm release to be automatically updated by Keel

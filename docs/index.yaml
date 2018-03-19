@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   beer-service-web:
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.146321Z
+    created: 2018-03-19T11:55:38.425686Z
     description: Beer Service Web Helm chart
     digest: cb35c4f72f814f743e8faf41b1f7c57fda1e9282b8c64471f8b6b8bdea0bc3b3
     name: beer-service-web
@@ -10,7 +10,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.146037Z
+    created: 2018-03-19T11:55:38.42535Z
     description: Beer Service Web Helm chart
     digest: cd8be314433d5fa9b2b8229da7f4f1ae9eabef10848b7fd5f3d61577c50c166c
     name: beer-service-web
@@ -18,7 +18,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.145747Z
+    created: 2018-03-19T11:55:38.424579Z
     description: Beer Service Web Helm chart
     digest: fcb290fc00511d94de808665a1bcd8329a351dec4222bbb9f96ff3d5851bc2fa
     name: beer-service-web
@@ -26,7 +26,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.145489Z
+    created: 2018-03-19T11:55:38.423711Z
     description: Beer Service Web Helm chart
     digest: 18acd6e76601a6061e44f288fec2825fa6834a7b432b8229c4b282dc178ee844
     name: beer-service-web
@@ -34,7 +34,7 @@ entries:
     - https://dcos-labs.github.io/charts/beer-service-web-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.145263Z
+    created: 2018-03-19T11:55:38.423019Z
     description: Beer Service Web Helm chart
     digest: a97e6d12ba90da0d061f12ae7942d68989e6a74860a1652f9bcca517c7e3bc2c
     name: beer-service-web
@@ -44,7 +44,7 @@ entries:
   buildkite:
   - apiVersion: v1
     appVersion: "3.0"
-    created: 2018-03-19T11:21:44.147625Z
+    created: 2018-03-19T11:55:38.429325Z
     description: Agent for Buildkite
     digest: f0aefd2c87b832d9237a2071fd36805411d6e841f12a2ecf05cbd369d66fb661
     home: https://buildkite.com
@@ -65,7 +65,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: "3.0"
-    created: 2018-03-19T11:21:44.147194Z
+    created: 2018-03-19T11:55:38.428826Z
     description: Agent for Buildkite
     digest: af5ca8dbf0d823e00652139e30281757315bf4af49ad5201d02448b90847c0ea
     home: https://buildkite.com
@@ -86,7 +86,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: "3.0"
-    created: 2018-03-19T11:21:44.146757Z
+    created: 2018-03-19T11:55:38.427221Z
     description: Agent for Buildkite
     digest: a72498face1c215d80c36f638bb00f23da6482a236ce7c63b5cf107b745b4fbc
     home: https://buildkite.com
@@ -108,7 +108,7 @@ entries:
   cloudflare-warp-ingress:
   - apiVersion: v1
     appVersion: 0.4.0
-    created: 2018-03-19T11:21:44.149284Z
+    created: 2018-03-19T11:55:38.433383Z
     description: Installs the Cloudflare Warp Ingress Controller
     digest: 8f6f01fdc757b65fc9279bc451210764ec7b10769514dc6dc74c8d9559b5416a
     home: https://warp.cloudflare.com/
@@ -121,7 +121,7 @@ entries:
     version: 0.1.7
   - apiVersion: v1
     appVersion: 0.4.0
-    created: 2018-03-19T11:21:44.149001Z
+    created: 2018-03-19T11:55:38.432832Z
     description: Installs the Cloudflare Warp Ingress Controller
     digest: 6b92a6b51e88b670aa319910f7447e90758b807202cbda1e5f58b6b58677dd4e
     home: https://warp.cloudflare.com/
@@ -134,7 +134,7 @@ entries:
     version: 0.1.6
   - apiVersion: v1
     appVersion: 0.4.0
-    created: 2018-03-19T11:21:44.148714Z
+    created: 2018-03-19T11:55:38.432064Z
     description: Installs the Cloudflare Warp Ingress Controller
     digest: 2ce232b7373e7ed33dfb27c6f2afd9e95ddf8b16153103681c9be68d6091c0dc
     home: https://warp.cloudflare.com/
@@ -146,7 +146,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.148424Z
+    created: 2018-03-19T11:55:38.431488Z
     description: Installs the cloudflare warp ingress controller
     digest: 7a65a015de88f5307039cc50e572e00541a3dcfd4dff7ca16771526724b15dc2
     home: https://warp.cloudflare.com/
@@ -160,7 +160,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.148154Z
+    created: 2018-03-19T11:55:38.430853Z
     description: Installs the cloudflare warp ingress controller
     digest: 648b313bb6ada93de7a1b43e525ba1802832baaa40153c66b34a6a39c98e5681
     home: https://warp.cloudflare.com/
@@ -174,7 +174,7 @@ entries:
     - https://dcos-labs.github.io/charts/cloudflare-warp-ingress-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.147881Z
+    created: 2018-03-19T11:55:38.429999Z
     description: Installs the cloudflare warp ingress controller
     digest: 21904f641c327b40c1d6ad00f9986ccd02fff4996d59f3a97c816bed98fc9745
     home: https://warp.cloudflare.com/
@@ -190,7 +190,7 @@ entries:
   flink-demo:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-03-19T11:21:44.149518Z
+    created: 2018-03-19T11:55:38.433673Z
     description: A Helm chart for Flink Demo
     digest: c88d2890265ca92c0f0fe318e104d2696da2d3f36e9da869dc86503417d075ba
     name: flink-demo
@@ -199,7 +199,7 @@ entries:
     version: 0.1.0
   jenkins:
   - appVersion: "2.73"
-    created: 2018-03-19T11:21:44.150938Z
+    created: 2018-03-19T11:55:38.435897Z
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -219,7 +219,7 @@ entries:
     - https://dcos-labs.github.io/charts/jenkins-0.13.2.tgz
     version: 0.13.2
   - appVersion: "2.73"
-    created: 2018-03-19T11:21:44.150254Z
+    created: 2018-03-19T11:55:38.435124Z
     description: Open source continuous integration server. It supports multiple SCM
       tools including CVS, Subversion and Git. It can execute Apache Ant and Apache
       Maven-based projects as well as arbitrary scripts.
@@ -240,8 +240,31 @@ entries:
     version: 0.13.1
   keel:
   - apiVersion: v1
+    appVersion: 0.8.0
+    created: 2018-03-19T11:55:38.437383Z
+    description: Open source, tool for automating Kubernetes deployment updates. Keel
+      is stateless, robust and lightweight.
+    digest: ea1f00b6fc363d74446d6c4b8bdbbc54d5c7da446d5a43d719cfc2186088237d
+    engine: gotpl
+    home: https://keel.sh
+    keywords:
+    - kubernetes deployment
+    - helm release
+    - continuous deployment
+    maintainers:
+    - email: rmocius@gmail.com
+      name: rimusz
+    - email: karolis.rusenas@gmail.com
+      name: rusenask
+    name: keel
+    sources:
+    - https://github.com/keel-hq/keel
+    urls:
+    - https://dcos-labs.github.io/charts/keel-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v1
     appVersion: 0.6.1
-    created: 2018-03-19T11:21:44.151849Z
+    created: 2018-03-19T11:55:38.439841Z
     description: Open source, tool for automating Kubernetes deployment updates. Keel
       is stateless, robust and lightweight.
     digest: b55d5c12d65610e2bc0720e27e04e331a96f88b7cead90f477191cc8ebb04906
@@ -264,7 +287,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: 0.6.1
-    created: 2018-03-19T11:21:44.151379Z
+    created: 2018-03-19T11:55:38.438807Z
     description: Open source, tool for automating Kubernetes deployment updates. Keel
       is stateless, robust and lightweight.
     digest: 8e274b561831e3b95d1bb87597271598bb8c22c362a979f09178927b8ca5188f
@@ -288,7 +311,7 @@ entries:
   nfs-provisioner:
   - apiVersion: v1
     appVersion: 1.0.9
-    created: 2018-03-19T11:21:44.152152Z
+    created: 2018-03-19T11:55:38.440158Z
     description: A Helm chart for NFS Provisioner
     digest: 53a43b6a6a1c2579acff6ac24ae92e3bc51bf204eb106718b8ebb44fef6842f3
     name: nfs-provisioner
@@ -297,7 +320,7 @@ entries:
     version: 0.1.0
   openfaas:
   - apiVersion: v1
-    created: 2018-03-19T11:21:44.153802Z
+    created: 2018-03-19T11:55:38.440626Z
     description: Enable Kubernetes as a backend for OpenFaaS (Functions as a Service)
     digest: dd97d4634c54c39060218a7f130e0681b04e0ed51ba0358f216c18ba9fc62c35
     home: https://www.openfaas.com
@@ -320,11 +343,11 @@ entries:
   os-detector:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-03-19T11:21:44.154285Z
+    created: 2018-03-19T11:55:38.44089Z
     description: A Helm chart for Kubernetes
     digest: 58a697e1b80e0c59131ac35cb6a2d116cc177e759386c6df578f5f1307bbd804
     name: os-detector
     urls:
     - https://dcos-labs.github.io/charts/os-detector-0.1.0.tgz
     version: 0.1.0
-generated: 2018-03-19T11:21:44.144886Z
+generated: 2018-03-19T11:55:38.422302Z

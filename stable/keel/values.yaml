@@ -4,7 +4,7 @@
 
 image:
   repository: keelhq/keel
-  tag: 0.6.1
+  tag: 0.8.0
   pullPolicy: IfNotPresent
 
 # Polling is enabled by default,
@@ -31,8 +31,10 @@ webhook:
   endpoint: ""
 
 # Slack Notification
+# bot name (default keel) must exist!
 slack:
   enabled: false
+  bot_name: ""
   token: ""
   channel: ""
   approvals_channel: ""
@@ -57,6 +59,7 @@ service:
   enabled: false
   type: LoadBalancer
   externalPort: 9300
+  clusterIP: ""
 
 # Webhook Relay service
 # If you don’t want to expose your Keel service, you can use https://webhookrelay.com/
@@ -104,17 +107,10 @@ resources:
 # NodeSelector
 nodeSelector: {}
 
-# json of service account
-# googleApplicationCredentials: |-
-#   {
-#     "type":
-#     "project_id"
-#     "private_key_id":
-#     "private_key":
-#     "client_email":
-#     "client_id":
-#     "auth_uri":
-#     "token_uri":
-#     "auth_provider_x509_cert_url":
-#     "client_x509_cert_url":
-#   }
+# base64 encoded json of GCP service account
+# more info available here: https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform
+# e.g. --set googleApplicationCredentials=$(cat <JSON_KEY_FIEL> | base64)
+# googleApplicationCredentials: ""
+
+# Enable DEBUG logging
+debug: false

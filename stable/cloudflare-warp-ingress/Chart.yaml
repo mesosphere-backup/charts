@@ -5,5 +5,5 @@ maintainers:
 - email: rmocius@gmail.com
   name: rimusz
 name: cloudflare-warp-ingress
-version: 0.1.6
+version: 0.1.7
 appVersion: 0.4.0

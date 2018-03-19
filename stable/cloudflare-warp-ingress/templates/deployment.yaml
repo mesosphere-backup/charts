@@ -1,4 +1,5 @@
-apiVersion: extensions/v1beta1
+{{- if .Values.cert }}
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: {{ template "cloudflare-warp-ingress.fullname" . }}
@@ -9,12 +10,30 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "cloudflare-warp-ingress.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ template "cloudflare-warp-ingress.name" . }}
         release: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - {{ template "cloudflare-warp-ingress.name" . }}
+              topologyKey: kubernetes.io/hostname
       containers:
         - name: {{ .Chart.Name }}
           command:
@@ -40,3 +59,4 @@ spec:
     {{- end }}
       serviceAccount: {{ .Values.rbac.serviceAccount }}
       serviceAccountName: {{ .Values.rbac.serviceAccount }}
+{{- end }}

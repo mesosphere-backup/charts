@@ -1,11 +1,13 @@
-# Beer demo ingress controller Helm chart
-
-## Cloudflare Warp
+# Cloudflare Warp Ingress Controller
 
 The Cloudflare Warp Ingress Controller makes connections between a Kubernetes service and the Cloudflare edge, exposing an application in your cluster to the internet at a hostname of your choice. A quick description of the details can be found at https://warp.cloudflare.com/quickstart/.
 
 **Note:** Before installing Cloudflare Warp you need to obtain Cloudflare credentials for your domain zone.
 The credentials are obtained by logging in to https://www.cloudflare.com/a/warp, selecting the zone where you will be publishing your services, and saving the file to local folder.
+
+Below is an example below how to deploy it for [Beer demo app](https://github.com/dcos/demos/tree/master/dcos-k8s-beer-demo/1.10)
+
+## Beer service web demo ingress controller
 
 To deploy Cloudflare Warp Ingress Controller run:
 
@@ -33,5 +35,3 @@ The release can be cleaned up with helm:
 ```bash
 helm delete --purge beer-ingress
 ```
-
-**Note:** You can use this chart for any other app you want to expose via Cloudflare Warp.

@@ -33,3 +33,5 @@ The release can be cleaned up with helm:
 ```bash
 helm delete --purge beer-ingress
 ```
+
+**Note:** You can use this chart for any other app you want to expose via Cloudflare Warp.

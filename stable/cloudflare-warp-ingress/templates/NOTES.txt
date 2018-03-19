@@ -1,3 +1,4 @@
+{{- if .Values.cert }}
 To verify that Cloud Warp Controller has started:
 
 kubectl --namespace={{ .Release.Namespace }} get deployments -l "release={{ .Release.Name }}, app={{ template "cloudflare-warp-ingress.name" . }}"
@@ -21,3 +22,18 @@ To set up a warp tunnel to your service, install an ingress of this form:
               servicePort: [SERVICE PORT]
 
 For more information, visit https://warp.cloudflare.com/
+
+{{- else -}}
+
+##############################################################################
+####   ERROR: You did not provide Cloudflare Warp Controller cert.        ####
+##############################################################################
+
+All pods do not go to the running state if the Cloudflare Warp Controller cert was not provided.
+
+This deployment will be incomplete until you provide Cloudflare Warp Controller cert:
+
+  helm upgrade beer-ingress --namespace beer dlc/cloudflare-warp-ingress \
+      --set cert=$(cat cloudflare-warp.pem | base64)
+
+{{- end }}

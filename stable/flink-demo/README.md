@@ -1,6 +1,6 @@
 # Flink demo Display and Generator Helm chart
 
-This is a Helm chart for [flink](https://github.com/dcos/demos/tree/master/flink/1.10) demo.
+This is a Helm chart for [flink](https://github.com/dcos/demos/tree/master/flink-k8s/1.11) demo.
 
 ## Deploy
 

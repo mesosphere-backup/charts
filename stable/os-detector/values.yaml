@@ -21,7 +21,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: cloudflare-warp
 
-cassandraUrl: "node.cassandra.l4lb.thisdcos.directory:9042"
+cassandraUrl: "node-0-server.cassandra.autoip.dcos.thisdcos.directory:9042"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

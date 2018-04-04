@@ -8,12 +8,46 @@ Please follow [os-detector readme](https://github.com/mesosphere/dcos-kubernetes
 
 ## Deploy Frontend on Kubernetes
 
+### Web Relay Ingress Controller
+
+[Web Relay](https://webhookrelay.com) allows to expose your Kubernetes services externally to Internet.
+
+Create a free account at [Web Relay site](https://webhookrelay.com)
+
+Install `relay` cli:
+
+```bash
+brew install webhookrelay/tap/relay
+```
+
+Install Web Relay Ingress Controller into your Kubernetes cluster:
+
+```bash
+relay ingress init --no-rbac
+```
+
+Check that pod is running:
+
+```bash
+kubectl -n webrelay-ingress get pod
+NAME                       READY     STATUS    RESTARTS   AGE
+webrelay-8c4d57749-mql9x   1/1       Running   0          1m
+```
+
+Create Web Relay tunnel:
+
+```bash
+relay tunnel create --group webrelay-ingress os-detector
+```
+*** Take a note of tunnel endpoint - e.g. 2p4ptkh9vutgm8tqavigja.webrelay.io ***
+
+
 ### Frontend App
 
-To deploy Frontend App (do not forget to replace there with your `domain_name`) run:
+To deploy Frontend App (do not forget to replace there `host` with webrelay.io tunnel name) run:
 ```bash
 helm upgrade --install os-detector --namespace os-detector dlc/os-detector \
-  --set ingress.enabled="true",ingress.host="os-detector.mydomain.com"
+  --set ingress.enabled="true",ingress.host="2p4ptkh9vutgm8tqavigja.webrelay.io"
 ```
 
 Check that pods are running:
@@ -27,39 +61,20 @@ os-detector-8d4d57cbf-vfwfx   1/1       Running   0          59s
 os-detector-8d4d57cbf-zgp42   1/1       Running   0          59s
 ```
 
-### Cloudflare Warp Ingress Controller
-
-The Cloudflare Warp Ingress Controller makes connections between a Kubernetes service and the Cloudflare edge, exposing an application in your cluster to the internet at a hostname of your choice. A quick description of the details can be found at https://warp.cloudflare.com/quickstart/.
-
-**Note:** Before installing Cloudflare Warp you need to obtain Cloudflare credentials for your domain zone.
-The credentials are obtained by logging in to https://www.cloudflare.com/a/warp, selecting the zone where you will be publishing your services, and saving the file local folder.
-
-To deploy Cloudflare Warp Ingress Controller [chart](https://github.com/dcos-labs/charts/tree/master/stable/cloudflare-warp-ingress) run:
-```bash
-helm upgrade --install os-detector-ingress --namespace os-detector dlc/cloudflare-warp-ingress --set cert=$(cat cloudflare-warp.pem | base64)
-```
-
-Check that pods are running:
-```bash
-kubectl -n os-detector get pods
-NAME                                                          READY     STATUS    RESTARTS   AGE
-os-detector-8d4d57cbf-g65ls                                   1/1       Running   0          2m
-os-detector-8d4d57cbf-jznjm                                   1/1       Running   0          2m
-os-detector-8d4d57cbf-r4n27                                   1/1       Running   0          2m
-os-detector-8d4d57cbf-vfwfx                                   1/1       Running   0          2m
-os-detector-8d4d57cbf-zgp42                                   1/1       Running   0          2m
-os-detector-ingress-cloudflare-warp-ingress-cd84b466b-fnzw4   1/1       Running   0          11s
-```
-
 ### Testing access
 
-Now you should be able to check os-detector at https://os-detector.mydomain.com/
+Now you should be able to check os-detector at http://xxxxxx.webrelay.io/
 
-## Remove
+## Cleanup
 
-The release can be cleaned up with helm:
+The os-detector release can be cleaned up with helm:
 
 ```bash
-helm delete --purge os-detector-ingress
 helm delete --purge os-detector
+```
+
+And the Webrelay ingress can be cleaned up with `relay` cli:
+
+```bash
+relay ingress reset
 ```

@@ -21,22 +21,30 @@
 You can create a separate namespace for OpenFaaS core services and functions (recommended):
 
 ```
+$ kubectl create ns openfaas
 $ kubectl create ns openfaas-fn
+```
 
+Install the OpenFaaS chart:
+
+```
 $ helm upgrade --install openfaas dlc/openfaas \
    --namespace openfaas \
    --set functionNamespace=openfaas-fn
 ```
 
-Or to use the default namespace:
+By default NodePorts will be created for the API Gateway and Prometheus.
+
+> Note: If you're running on a cloud such as AKS or GKE you will need to pass an additional flag of `--set serviceType=LoadBalancer` to tell `helm` to create LoadBalancer objects instead. An alternative to using multiple LoadBalancers is to install an Ingress controller.
+
+
+Or to use the default namespace (not recommended):
 
 ```
 $ helm upgrade --install openfaas dlc/openfaas \
    --namespace default \
    --set functionNamespace=default
 ```
-
-By default you will have NodePorts available for each service such as the API gateway and Prometheus
 
 ### Deploy with an IngressController
 
@@ -67,11 +75,11 @@ Additional OpenFaaS options.
 | `serviceType` | Type of external service to use `NodePort/LoadBalancer` | `NodePort` |
 | `ingress.enabled` | Create ingress resources | `false` |
 | `rbac` | Enable RBAC | `true` |
-| `faasnetesd.readTimeout` | Queue worker read timeout | `20` |
-| `faasnetesd.writeTimeout` | Queue worker write timeout | `20` |
-| `gateway.readTimeout` | Queue worker read timeout | `20` |
-| `gateway.writeTimeout` | Queue worker write timeout | `20` |
-| `queueWorker.ackWait` | Max duration of any async task/request | `30` |
+| `faasnetesd.readTimeout` | Queue worker read timeout | `20s` |
+| `faasnetesd.writeTimeout` | Queue worker write timeout | `20s` |
+| `gateway.readTimeout` | Queue worker read timeout | `20s` |
+| `gateway.writeTimeout` | Queue worker write timeout | `20s` |
+| `queueWorker.ackWait` | Max duration of any async task/request | `30s` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 See values.yaml for detailed configuration.

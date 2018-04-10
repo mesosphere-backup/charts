@@ -1,0 +1,55 @@
+# Default values for contour.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+contour:
+  image:
+    repository: gcr.io/heptio-images/contour
+    tag: v0.4.1
+    pullPolicy: Always
+
+envoy:
+  image:
+    repository: docker.io/envoyproxy/envoy-alpine
+    tag: v1.6.0
+    pullPolicy: IfNotPresent
+# Contour specific Deployment annotations
+annotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9001"
+  prometheus.io/path: "/stats"
+  prometheus.io/format: "prometheus"
+
+service:
+  type: LoadBalancer
+  loadBalancerIP: ""
+  # Contour specific Service annotations
+  annotations: {}
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      podAffinityTerm:
+        labelSelector:
+          matchLabels:
+            app: contour
+        topologyKey: kubernetes.io/hostname

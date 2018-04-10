@@ -15,6 +15,8 @@ To install the chart with the release name `contour`:
 $ helm install --name contour dlc/contour
 ```
 
+By default `contour` uses `HostPort` to expose ports 80/443. You can change to use `LoadBalancer` via `-set` or in `values.yaml`
+
 > **Tip**: List all releases using `helm list`
 
 ## Configuration

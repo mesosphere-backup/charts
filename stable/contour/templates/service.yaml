@@ -1,3 +1,4 @@
+{{- if contains "LoadBalancer" .Values.service.type }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -13,7 +14,7 @@ metadata:
 {{ toYaml . | indent 4 }}
     {{- end }}
 spec:
-  type: {{ .Values.service.type }}
+  type: LoadBalancer
 {{- if .Values.service.loadBalancerIP }}
   loadBalancerIP: "{{ .Values.service.loadBalancerIP }}"
 {{- end }}
@@ -21,11 +22,12 @@ spec:
    - port: 80
      name: http
      protocol: TCP
-     targetPort: 8080
+     targetPort: 80
    - port: 443
      name: https
      protocol: TCP
-     targetPort: 8443
+     targetPort: 443
   selector:
     app: {{ template "contour.name" . }}
     release: {{ .Release.Name }}
+{{- end }}

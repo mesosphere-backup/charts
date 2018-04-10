@@ -36,7 +36,15 @@ resources: {}
 
 podAnnotations: {}
 
-nodeSelector: {}
+# Schedule on public agent
+nodeSelector:
+  kubernetes.dcos.io/node-type: "public"
+
+# Schedule on public agent
+tolerations:
+  - key: "node-type.kubernetes.dcos.io/public"
+    operator: "Exists"
+    effect: "NoSchedule"
 
 ingressShim:
   enabled: true

@@ -18,7 +18,7 @@ functionality in cert-manager can be found in the [official deploying docs](http
 To install the chart with the release name `cert-manager`:
 
 ```console
-$ helm install --name cert-manager dlc/cert-manager
+$ helm install --name cert-manager --namespace cert-manager dlc/cert-manager
 ```
 
 In order to begin issuing certificates, you will need to set up a ClusterIssuer
@@ -80,6 +80,6 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
 ```console
-$ helm install --name cert-manager dlc/cert-manager -f values.yaml .
+$ helm install --name cert-manager --namespace cert-manager dlc/cert-manager -f values.yaml .
 ```
 > **Tip**: You can use the default [values.yaml](values.yaml)

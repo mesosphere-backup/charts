@@ -4,8 +4,11 @@
 
 image:
   repository: keelhq/keel
-  tag: 0.8.2
+  tag: 0.8.5
   pullPolicy: IfNotPresent
+
+# Enable insecure registries
+insecure_registry: false
 
 # Polling is enabled by default,
 # you can disable it setting value below to false

@@ -4,7 +4,7 @@
 
 image:
   repository: keelhq/keel
-  tag: 0.8.5
+  tag: 0.9.0-rc5
   pullPolicy: IfNotPresent
 
 # Enable insecure registries
@@ -20,12 +20,19 @@ helmProvider:
   enabled: true
 
 # Google Container Registry
-# GCP Project ID
 gcr:
   enabled: false
+  # GCP Project ID
   projectId:  ""
   pubSub:
     enabled: false
+
+# AWS ECR support for polling trigger
+ecr:
+  enabled: false
+  awsRegion: ""
+  awsAccessKeyId: ""
+  awsSecretAccessKey: ""
 
 # Webhook Notification
 # Remote webhook endpoint for notification delivery
@@ -79,9 +86,7 @@ webhookRelay:
     tag: 0.6.0
     pullPolicy: IfNotPresent
 
-# Keel self-update
-# uncomment lines below if you want Keel to automaticly
-# self-update to the latest release version
+# Keel self-update to the latest release version
 keel:
   # keel policy (all/major/minor/patch/force)
   policy: all
@@ -107,8 +112,11 @@ resources:
     cpu: 50m
     memory: 64Mi
 
-# NodeSelector
 nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
 
 # base64 encoded json of GCP service account
 # more info available here: https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform

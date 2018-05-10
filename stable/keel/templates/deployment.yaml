@@ -58,6 +58,15 @@ spec:
             - name: PUBSUB
               value: "1"
 {{- end }}
+{{- if .Values.ecr.enabled }}
+            # Enable AWS ECR support for polling trigger
+            - name: AWS_REGION
+              value: "{{ .Values.ecr.awsRegion }}"
+            - name: AWS_ACCESS_KEY_ID
+              value: "{{ .Values.ecr.awsAccessKeyId }}"
+            - name: AWS_SECRET_ACCESS_KEY
+              value: "{{ .Values.ecr.awsSecretAccessKey }}"
+{{- end }}
 {{- if .Values.webhook.enabled }}
             # Enable webhook endpoint
             - name: WEBHOOK_ENDPOINT

@@ -2,7 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: {{ template "keel.fullname" . }}
-  namespace: kube-system
+  namespace: {{ .Release.Namespace }}
   labels:
     app: {{ template "keel.name" . }}
     chart: {{ template "keel.chart" . }}
@@ -23,7 +23,8 @@ spec:
       serviceAccountName: {{ template "keel.name" . }}
       containers:
         - name: keel
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          # Note that we use appVersion to get images tag.
+          image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/bin/keel"]
 {{- if .Values.googleApplicationCredentials }}
@@ -33,6 +34,8 @@ spec:
               readOnly: true
 {{- end }}
           env:
+            - name: NAMESPACE
+              value: {{ .Release.Namespace }}
 {{- if .Values.googleApplicationCredentials }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /google/google-application-credentials.json
@@ -50,6 +53,8 @@ spec:
             # Enable/disable Helm provider
             - name: HELM_PROVIDER
               value: "1"
+            - name: TILLER_ADDRESS
+              value: "{{ .Values.helmProvider.tillerAddress }}"
 {{- end }}
 {{- if .Values.gcr.enabled }}
             # Enable GCR with pub/sub support
@@ -57,15 +62,6 @@ spec:
               value: "{{ .Values.gcr.projectId }}"
             - name: PUBSUB
               value: "1"
-{{- end }}
-{{- if .Values.ecr.enabled }}
-            # Enable AWS ECR support for polling trigger
-            - name: AWS_REGION
-              value: "{{ .Values.ecr.awsRegion }}"
-            - name: AWS_ACCESS_KEY_ID
-              value: "{{ .Values.ecr.awsAccessKeyId }}"
-            - name: AWS_SECRET_ACCESS_KEY
-              value: "{{ .Values.ecr.awsSecretAccessKey }}"
 {{- end }}
 {{- if .Values.webhook.enabled }}
             # Enable webhook endpoint
@@ -128,7 +124,7 @@ spec:
         - name: webhookrelayd
           image: "{{ .Values.webhookRelay.image.repository }}:{{ .Values.webhookRelay.image.tag }}"
           imagePullPolicy: {{ .Values.webhookRelay.image.pullPolicy }}
-          command: ["/webhookrelayd"]
+          command: ["/relayd"]
           env:
             - name: KEY
               valueFrom:

@@ -4,7 +4,7 @@
 
 image:
   repository: keelhq/keel
-  tag: 0.9.0-rc5
+  # tag: 
   pullPolicy: IfNotPresent
 
 # Enable insecure registries
@@ -18,21 +18,15 @@ polling:
 # Helm provider support
 helmProvider:
   enabled: true
+  tillerAddress: "tiller-deploy.kube-system.svc.cluster.local:44134"
 
 # Google Container Registry
+# GCP Project ID
 gcr:
   enabled: false
-  # GCP Project ID
   projectId:  ""
   pubSub:
     enabled: false
-
-# AWS ECR support for polling trigger
-ecr:
-  enabled: false
-  awsRegion: ""
-  awsAccessKeyId: ""
-  awsSecretAccessKey: ""
 
 # Webhook Notification
 # Remote webhook endpoint for notification delivery
@@ -76,17 +70,21 @@ service:
 # which can deliver webhooks to your internal Keel service through Keel sidecar container.
 webhookRelay:
   enabled: false
+  bucket: ""
   # webhookrelay.com credentials
+  # Set the key and secret values here to create the keel-webhookrelay secret with this
+  # chart -or- leave key and secret blank and create the keel-webhookrelay secret separately.
   key: ""
   secret: ""
-  bucket: ""
   # webhookrelay docker image
   image:
     repository: webhookrelay/webhookrelayd
-    tag: 0.6.0
+    tag: 0.6.3
     pullPolicy: IfNotPresent
 
-# Keel self-update to the latest release version
+# Keel self-update
+# uncomment lines below if you want Keel to automaticly
+# self-update to the latest release version
 keel:
   # keel policy (all/major/minor/patch/force)
   policy: all
@@ -112,11 +110,12 @@ resources:
     cpu: 50m
     memory: 64Mi
 
+# NodeSelector
 nodeSelector: {}
 
-tolerations: []
-
 affinity: {}
+
+tolerations: {}
 
 # base64 encoded json of GCP service account
 # more info available here: https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform
@@ -125,3 +124,8 @@ affinity: {}
 
 # Enable DEBUG logging
 debug: false
+
+# This is used by the static manifest generator in order to create a static
+# namespace manifest for the namespace that cert-manager is being installed
+# within. It should **not** be used if you are using Helm for deployment.
+createNamespaceResource: false

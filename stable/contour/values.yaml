@@ -7,7 +7,8 @@ replicaCount: 1
 contour:
   image:
     repository: gcr.io/heptio-images/contour
-    tag: v0.4.1
+    # Note that by default we use appVersion to get images tag
+    # tag: v0.5.0
     pullPolicy: Always
 
 envoy:
@@ -23,8 +24,7 @@ annotations:
   prometheus.io/format: "prometheus"
 
 service:
-  # set LoadBalancer for supported cloud providers LBs or HostPort to expose ports 80/443 on public agent of DC/OS
-  type: HostPort
+  type: LoadBalancer
   loadBalancerIP: ""
   # Contour specific Service annotations
   annotations: {}
@@ -40,6 +40,13 @@ resources: {}
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
+
+# Default namespace
+namespace: heptio-contour
+
+# RBAC manifests management
+rbac:
+  enabled: false
 
 # Schedule on public agent
 nodeSelector:

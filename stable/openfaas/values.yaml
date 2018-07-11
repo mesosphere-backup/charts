@@ -4,27 +4,45 @@ async: true
 
 exposeServices: true
 serviceType: NodePort
-rbac: false
+rbac: true
+securityContext: true
+basic_auth: false
 
 faasnetesd:
+  image: openfaas/faas-netesd:0.5.7
   readTimeout : "20s"
   writeTimeout : "20s"
+  imagePullPolicy : "Always"    # Image pull policy for deployed functions
 
 gateway:
+  image: openfaas/gateway:0.8.4
   readTimeout : "20s"
   writeTimeout : "20s"
+  upstreamTimeout : "15s"  # Must be smaller than read/write_timeout
+  replicas: 1
 
 queueWorker:
+  image: openfaas/queue-worker:0.4.8
   ackWait : "30s"
+  replicas: 1
 
-# images
-images:
-  controller: functions/faas-netesd:0.4.6
-  gateway: functions/gateway:0.7.8
-  prometheus: prom/prometheus:v2.2.0
-  alertmanager: prom/alertmanager:v0.15.0-rc.0
-  nats: nats-streaming:0.6.0
-  queueWorker: functions/queue-worker:0.4.3
+# image pull policy for openfaas components, can change to `IfNotPresent` in offline env
+openfaasImagePullPolicy: "Always"
+
+# replaces faas-netes with openfaas-operator
+operator:
+  image: functions/openfaas-operator:0.8.0
+  create: false
+
+# monitoring and auto-scaling components
+prometheus:
+  image: prom/prometheus:v2.3.1
+alertmanager:
+  image: prom/alertmanager:v0.15.0
+
+# async provider
+nats:
+  image: nats-streaming:0.6.0
 
 # ingress configuration
 ingress:
@@ -51,3 +69,5 @@ ingress:
     kubernetes.io/ingress.class: nginx
   tls:
     # Secrets must be manually created in the namespace.
+
+

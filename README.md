@@ -1,4 +1,4 @@
-# DC/OS Labs Kubernetes [demo apps](https://github.com/dcos/demos) Helm charts repository 
+# DC/OS Labs Kubernetes Helm charts repository 
 
 ## Install Helm
 

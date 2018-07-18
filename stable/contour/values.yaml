@@ -24,7 +24,7 @@ annotations:
   prometheus.io/format: "prometheus"
 
 service:
-  type: LoadBalancer
+  type: HostPort
   loadBalancerIP: ""
   # Contour specific Service annotations
   annotations: {}

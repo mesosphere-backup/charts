@@ -87,7 +87,7 @@ their default values.
 | Parameter                      | Description                                                                       | Default                                               |
 |:-------------------------------|:----------------------------------------------------------------------------------|:------------------------------------------------------|
 | `image.repository`             | The image repository to pull from                                                 | `quay.io/kubernetes_incubator/nfs-client-provisioner` |
-| `image.tag`                    | The image tag to pull from                                                        | `v2.1.0-k8s1.10`                                      |
+| `image.tag`                    | The image tag to pull from                                                        | `v2.1.1-k8s1.10`                                      |
 | `image.pullPolicy`             | Image pull policy                                                                 | `IfNotPresent`                                        |
 | `nfs.server`                   | NFS server IP                                                                     | ``                                                    |
 | `nfs.path`                     | NFS server share path                                                             | `/vol1`                                               |
